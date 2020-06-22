@@ -36,3 +36,9 @@ git add .
 git commit -m "AutoWhatsService"
 git push heroku master
 ```
+- Paste this in terminal or cmd to deploy.
+## Running the App
+- After successful deployment, you can run the app by calling `<YOUR_APP_NAME>.herokuapp.com`.
+- You will get the QR CODE to Scan
+- After Scanning Click `Start` link.
+- Finally you can see. Your WhatsApp message are being Auto Replied.

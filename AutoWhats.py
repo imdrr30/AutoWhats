@@ -77,7 +77,7 @@ def start():
         elif ctime[1]==':':
           ctime = ctime[:4]
           print("elif",ctime)
-        if current_date_and_time.strftime("%H:%M")>=ctime:
+        if current_date_and_time.strftime("%H:%M")>ctime:
           user.click()
           print(itext)
           lastm = driver.find_elements_by_xpath('//span[@class = "_3Whw5 selectable-text invisible-space copyable-text"]')

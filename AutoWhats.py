@@ -4,6 +4,9 @@ import time
 import datetime
 import os
 from PIL import Image
+import json
+import requests
+
 
 
 chrome_options = webdriver.ChromeOptions()
@@ -82,11 +85,18 @@ def start():
           s = tmp.find("</span>")
           lmsg = tmp[6:s]
           txtbx = driver.find_element_by_xpath('//div[@spellcheck = "true"]')
-          if lmsg=='busy ?':
-            txtbx.send_keys("Yep call you later")
+          url = 'https://raw.githubusercontent.com/revanrohith/AutoWhats/master/messages.json'
+          r = requests.get(url, allow_redirects=True)
+          open('messages.json', 'wb').write(r.content)
+
+          with open('messages.json', 'r') as js:
+            print(js)
+            data = json.load(js)
+          if lmsg in data.keys():
+            txtbx.send_keys(data[lmsg])
             txtbx.send_keys(Keys.RETURN)
           else:
-            txtbx.send_keys("The Person you reached is Offline and will text you soon")
+            txtbx.send_keys(data['default_message'])
             txtbx.send_keys(Keys.RETURN)
         else:
           continue

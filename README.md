@@ -1,7 +1,7 @@
 # AutoWhats
 Automate WhatsApp for away messages
 ## Deploy in Heroku
-In order to work in background we need to deploy it in a server.
+In order to make it work in background we need to deploy it in a server.
 ### Getting Started
 - Get Heroku Free Dyno Account
 - Install Heroku-CLI in your Machine

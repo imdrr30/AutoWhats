@@ -55,7 +55,7 @@ def start():
       user = user.find_element_by_xpath('..')
       #Checking is that a Group
       itext = user.get_attribute('innerHTML')
-      if ('class="_5h6Y_ _3Whw5"' in itext or 'added you' in itext or "You're now an admin" in itext or "removed you" in itext ) :
+      if ('status-check' in itext or 'status-dblcheck' in itext or 'class="_5h6Y_ _3Whw5"' in itext or 'added you' in itext or "You're now an admin" in itext or "removed you" in itext ) :
         #if Group Found
         driver.execute_script("var ele = arguments[0];ele.parentNode.removeChild(ele);", user)
         print("Group Detected Unread")

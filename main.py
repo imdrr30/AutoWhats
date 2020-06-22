@@ -19,7 +19,7 @@ def hello():
 @app.route("/start")
 def serve():
     s1.start()
-    return 'service started.<br><br>To Stop Click<a href="./stop">here</a>'
+    return 'service started.<br><br>To Stop Click <a href="./stop">here</a>'
 
 @app.route("/stop")
 def stp():

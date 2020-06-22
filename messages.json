@@ -1,3 +1,4 @@
 {
-  "default_message" : "Hi! The person you reached is not available right now. - This message is Automated"
+  "default_message" : "Hi! The person you reached is not available right now. - This message is Automated",
+ "busy ?" : "Yep! I will ping you back later." 
 }

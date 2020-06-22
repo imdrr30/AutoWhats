@@ -5,7 +5,8 @@ In order to work in background we need to deploy it in a server.
 ### Getting Started
 - Get Heroku Free Dyno Account
 - Install Heroku-CLI in your Machine
-- In terminal or cmd enter `$ heroku login`.
+- In terminal or cmd enter:
+- `$ heroku login`
 - After Logging in
 - Create an App.
 - `$ heroku apps:create [NEW_APP_NAME]`

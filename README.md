@@ -1,5 +1,5 @@
 # AutoWhats
-Automate WhatsApp for away messages
+Automate away messages in WhatsApp
 ## Deploy in Heroku
 In order to make it work in background we need to deploy it in a server.
 ### Getting Started

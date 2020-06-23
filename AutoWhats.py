@@ -6,7 +6,7 @@ import os
 from PIL import Image
 import json
 import requests
-
+from threading import *
 
 
 chrome_options = webdriver.ChromeOptions()
@@ -41,6 +41,18 @@ def getqr():
   im.save('static/qr.png')
   os.remove("shot.png")
 
+def activesession():
+  try:
+    sessionnotactive = driver.find_element_by_xpath('//div[@class = "G_MLO"]')
+    time.sleep(600)
+    sessionnotactive = driver.find_element_by_xpath('//div[@class = "S7_rT FV2Qy"]')
+    sessionnotactive.click()
+  except:
+    pass
+
+def resume():
+  sessionnotactive = driver.find_element_by_xpath('//div[@class = "S7_rT FV2Qy"]')
+  sessionnotactive.click()
 
 def start():
   try:
@@ -48,7 +60,15 @@ def start():
   except:
     pass
   print("startedddd")
+  activesession()
   while True:
+    url = 'https://raw.githubusercontent.com/revanrohith/AutoWhats/master/messages.json'
+    r = requests.get(url, allow_redirects=True)
+    open('messages.json', 'wb').write(r.content)
+
+    with open('messages.json', 'r') as js:
+      print(js)
+      data = json.load(js)
     time.sleep(2)
     try:
       auser = driver.find_element_by_xpath('//span[@class = "_31gEB"]')
@@ -77,7 +97,7 @@ def start():
         elif ctime[1]==':':
           ctime = ctime[:4]
           print("elif",ctime)
-        if current_date_and_time.strftime("%H:%M")>ctime:
+        if current_date_and_time.strftime("%H:%M")>=ctime:
           user.click()
           print(itext)
           lastm = driver.find_elements_by_xpath('//span[@class = "_3Whw5 selectable-text invisible-space copyable-text"]')
@@ -85,13 +105,6 @@ def start():
           s = tmp.find("</span>")
           lmsg = tmp[6:s]
           txtbx = driver.find_element_by_xpath('//div[@spellcheck = "true"]')
-          url = 'https://raw.githubusercontent.com/revanrohith/AutoWhats/master/messages.json'
-          r = requests.get(url, allow_redirects=True)
-          open('messages.json', 'wb').write(r.content)
-
-          with open('messages.json', 'r') as js:
-            print(js)
-            data = json.load(js)
           if lmsg in data.keys():
             txtbx.send_keys(data[lmsg])
             txtbx.send_keys(Keys.RETURN)

@@ -6,12 +6,12 @@ In order to make it work in background we need to deploy it in a server.
 - Get Heroku Free Dyno Account
 - Install Heroku-CLI in your Machine
 - In terminal or cmd enter:
-- `$ heroku login`
+- `heroku login`
 - After Logging in
 - Create an App.
-- `$ heroku apps:create [NEW_APP_NAME]`
+- `heroku apps:create [NEW_APP_NAME]`
 - Access that App
-- `$ heroku git:remote -a YOUR_APP_NAME`
+- `heroku git:remote -a YOUR_APP_NAME`
 
 ### Pre-Configuration 1
 - Since We use Selenium with Chrome. We need to provide required dependencies for heroku.

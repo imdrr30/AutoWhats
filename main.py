@@ -5,6 +5,10 @@ app = Flask(__name__)
 from threading import *
 
 
+@app.route("/")
+def hello():
+    AutoWhats.getqr()
+    return render_template('index.html',rval=random.randint(11111,22222))
 
 class service(Thread):
   def run(self):
@@ -12,10 +16,7 @@ class service(Thread):
 
 s1 = service()
 
-@app.route("/")
-def hello():
-    AutoWhats.getqr()
-    return render_template('index.html',rval=random.randint(11111,22222))
+
 @app.route("/start")
 def serve():
     s1.start()

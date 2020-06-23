@@ -44,7 +44,7 @@ def getqr():
 def activesession():
   try:
     sessionnotactive = driver.find_element_by_xpath('//div[@class = "G_MLO"]')
-    time.sleep(600)
+    time.sleep(300)
     sessionnotactive = driver.find_element_by_xpath('//div[@class = "S7_rT FV2Qy"]')
     sessionnotactive.click()
   except:
